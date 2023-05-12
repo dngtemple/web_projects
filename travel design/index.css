@@ -1,0 +1,73 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    height: 40px;
+    width:100%;
+    background-color:#546e7e;
+}
+
+
+.container{
+    /* background-color:orangered; */
+    height:40px;
+    width:80%;
+    margin-left:10%;
+    font-size: 0px;
+}
+ 
+.logo{
+    height: 40px;
+    width:10%;
+    /* background-color:pink; */
+    text-align:center;
+    font-size:30px;
+    font-family:calibri;
+    font-weight:bold;
+    display :inline-block;
+    
+}
+
+.navigation{
+    height: 40px;
+    width:20%;
+    /* background-color:paleturquoise; */
+    display: inline-block;
+    vertical-align:top;
+    font-size: 16px;
+    margin-left:55%;
+}
+
+.nav{
+    list-style-type:none;
+    font-size:0px;
+
+}
+
+.navlist{
+    display:inline-block;
+    width:20%;
+    height: 40px;
+    /* background-color:blanchedalmond; */
+    font-size: 16px;
+    text-align:center;
+    line-height:40px;
+}
+
+
+/* PLACES SECTION */
+
+.places{
+    width:100%;
+    /* height:600px; */
+    background-color:gray;
+}
+
+.places-container{
+    background-color:paleturquoise;
+    height:600px;
+    width:80%;
+    margin-left:10%;
+}
