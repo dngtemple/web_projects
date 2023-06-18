@@ -146,7 +146,7 @@
 .products{
     width:100%;
     padding:50px 0px;
-    background-color:#bed3d3;
+    background-color:white;
 }
 
 .products_container{
@@ -179,6 +179,7 @@
     display:flex;
     align-items:flex-end;
     overflow:hidden;
+
 }
 
 .product:nth-child(1){
@@ -215,9 +216,54 @@
 .product_details{
     width:100%;
     height:120px;
-    background-color:rgba(0,0,0,0.1);
-    color:black;
+    background-color:rgba(0,0,0,0.4);
+    color:white;
     font-size:16px;
     text-align:center;
     padding:10px;
+}
+
+.product_details:hover{
+    height:380px;
+}
+
+
+/* css for new product */
+
+.new_product{
+    width:100%;
+    height:400px;
+    background-color:#b57474;
+    display:flex;
+    overflow:hidden;
+}
+
+.newproduct_gall{
+    width:50%;
+    height:400px;
+    /* background-color:yellow; */
+}
+
+.newproduct_image{
+    height:700px;
+    width:100%;
+}
+
+.new_product_details{
+    padding:0px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.header_details{
+    font-size:33px;
+    font-family:calibri;
+    font-weight:700;
+}
+
+.text_details{
+    font-size:20px;
+    font-family:calibri;
+    font-weight:300;
 }
