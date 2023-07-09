@@ -323,4 +323,18 @@
 
 .footer_img{
     width:40px;
+
+}
+
+/* css for copyrights */
+
+.copy{
+    width:100%;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    font-size:13px;
+    font-family:segoe UI;
+    background-color:dimgrey;
+    font-weight:200;
 }
