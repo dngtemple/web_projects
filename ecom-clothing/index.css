@@ -213,7 +213,7 @@
     background-image:url("./images/product-10.webp");
 }
 
-.product_details{
+/* .product_details{
     width:100%;
     height:120px;
     background-color:rgba(0,0,0,0.4);
@@ -221,7 +221,7 @@
     font-size:16px;
     text-align:center;
     padding:10px;
-}
+} */
 
 .product_details:hover{
     height:380px;
