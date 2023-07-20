@@ -10,7 +10,9 @@
 
     /* css for header */
     .header{
-        height:240px;
+        height:40px;
+        overflow:hidden;
+        transition: .4s;
     }
 
     .container{
@@ -23,7 +25,9 @@
     }
 
     .navigation{
-        margin-left:40%;
+        width:100%;
+        margin-left:0px;
+
     }
 
     .navlist{
@@ -32,11 +36,18 @@
         height:40px;
     }
 
+    .header:hover{
+        height:240px;
+    }
+
+
+    
     /* css for banner */
 
     .banner{
         width:100%;
         height:200px;
+        margin-top:40px;
     }
 
     .banner_image{
