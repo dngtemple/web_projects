@@ -73,13 +73,14 @@
     vertical-align:top;
 }
 .places-container{
-    background-color:paleturquoise;
+    /* background-color:red; */
     /* height:400px; */
     width:80%;
     margin-left:10%;
     display:inline-block;
     font-size:0px;
     vertical-align:top;
+   
     
 }
 
@@ -112,7 +113,7 @@
 
 .descP1{
     font-size:12px;
-    font-family:verdana;
+    font-family:segoe UI;
 }
 
 .btn{
@@ -181,7 +182,7 @@
 .booking{
     width:100%;
     background-color:paleturquoise;
-    height:080px;
+    height:80px;
 }
 
 .booking_title{
