@@ -1,4 +1,16 @@
 .container{
-    background-color: lightgray;
+    /* background-color: lightgray; */
     width:80%;
+    padding:40px;
+    font-size: 14px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
 }

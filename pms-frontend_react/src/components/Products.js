@@ -1,10 +1,11 @@
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Products(){
 
 
-    let [products,setproducts]=useState();
+    let [products,setproducts]=useState([]);
 
 
     useEffect(function(){
@@ -24,9 +25,28 @@ function Products(){
   
     },[]);
 
+    function deleteData(id){
+        fetch("http://localhost:8000/products?id="+id,{
+            method:"DELETE"
+        })
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(msg){
+            console.log(msg);
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+    }
+
     return(
         <div className="container">
-            <h3>All Products</h3>
+            <div className='header'>
+              <h3>All Products</h3>
+
+              <Link to='/create'><button className=' btn btn-primary'>Create</button></Link>
+            </div>
 
             <table className="table table-striped mt-4">
                 <thead>
@@ -49,7 +69,9 @@ function Products(){
                                 <td>{product.quantity}</td>
                                 <td>
                                     <i className="fa-regular fa-pen-to-square text-success me-1"></i>
-                                    <i className='fa-solid fa-trash text-danger'></i>
+                                    <i  onClick={function(){
+                                        deleteData(product.id);
+                                    }} className='fa-solid fa-trash text-danger'></i>
                                 </td>                                
                             </tr>
                         );
