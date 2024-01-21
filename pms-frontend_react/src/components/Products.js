@@ -21,10 +21,11 @@ function Products(){
       setmodalvisible(false);
     }
 
-    // function readUpdate(property,value){
+    function readUpdate(property,value){
+      product.current[property]=value;
   
 
-    // }
+    }
 
 
 
@@ -52,18 +53,56 @@ function Products(){
         .then(function(response){
             return response.json();
         })
-        .then(function(msg){
-            console.log(msg);
+        .then(function(message){
+            if(message.success===true){
+
+              let tempProduct=[...products];
+              let indexTodelete= tempProduct.findIndex(function(element,index){
+                return Number(element.id)===Number(id);
+              })
+
+              tempProduct.splice(indexTodelete,1);
+              setproducts(tempProduct);
+
+            }
+            else{
+              console.log(message);
+            }
         })
         .catch(function(err){
             console.log(err);
         })
     }
 
+    function updateProduct(){
+      fetch(`http://localhost:8000/products?id=${product.current.id}`,{
+        method:"PUT",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(product.current)
+      })
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        
+        if(data.success===true){
+          setmodalvisible(false);
+        }
+        else{
+          console.log(data);
+        }
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+    }
+
 
     return(
       <div>
-
+ 
        {
         modalvisible===true?(
           <div className="modalopen">
@@ -75,12 +114,22 @@ function Products(){
 
             <h3>Update</h3>
             <form>
-                <input type="Number" placeholder="Id" className="form-control mb-3" defaultValue={product.current.id}></input>
-                <input type="text" placeholder="Enter Name" className="form-control mb-3" defaultValue={product.current.name}></input>
-                <input type="text" placeholder="Enter Price" className="form-control mb-3" defaultValue={product.current.name}></input>
-                <input type="text" placeholder="Enter Quantity" className="form-control mb-3" defaultValue={product.current.quantity}></input>
+                <input type="Number" placeholder="Id" className="form-control mb-3" defaultValue={product.current.id} onChange={function(event){
+                  readUpdate("id",event.target.value);
+                }}></input>
+                <input type="text" placeholder="Enter Name" className="form-control mb-3" defaultValue={product.current.name} onChange={function(event){
+                  readUpdate("name",event.target.value);
+                }}></input>
+                <input type="text" placeholder="Enter Price" className="form-control mb-3" defaultValue={product.current.price} onChange={function(event){
+                  readUpdate("price",event.target.value);
+                }}></input>
+                <input type="text" placeholder="Enter Quantity" className="form-control mb-3" defaultValue={product.current.quantity} onChange={function(event){
+                  readUpdate("quanity",event.target.value);
+                }}></input>
 
-                <button  type='button' className="btn btn-primary">Update</button>
+                <button  type='button' className="btn btn-primary" onClick={function(){
+                  updateProduct()
+                }}>Update</button>
 
             </form>
               

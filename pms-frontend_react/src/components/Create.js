@@ -1,4 +1,5 @@
 
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -11,6 +12,8 @@ function Create(){
     function readProduct(property,value){
         product[property]=value;
     }
+
+    let form=useRef();
 
 
     function createproduct(){
@@ -30,6 +33,8 @@ function Create(){
         .catch(function(err){
             console.log(err);
         })
+
+        form.current.reset();
     }
     return(
 
@@ -41,7 +46,7 @@ function Create(){
         </div>
 
         <div className="inputs">
-            <form>
+            <form ref={form}>
                 <input type="Number" placeholder="Id" className="form-control mb-3" onChange={function(event){
                     readProduct('id',event.target.value);
                 }}></input>
