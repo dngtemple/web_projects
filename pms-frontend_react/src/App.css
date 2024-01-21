@@ -42,3 +42,25 @@
     right: 10px;
     font-size: 20px;
 }
+
+.mytoast{
+    width: 30%;
+    height:30px;
+    background-color: lightgray;
+    padding:0px 20px;
+    border-radius:5px;
+    position: fixed;
+    bottom:10px;
+    z-index: 100;
+    transition: .3s;
+}
+
+.success{
+    background-color: green;
+    color:white
+}
+
+.error{
+    background-color: red;
+    color:white;
+}

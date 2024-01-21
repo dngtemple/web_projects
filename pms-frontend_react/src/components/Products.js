@@ -6,9 +6,10 @@ function Products(){
 
 
     let [products,setproducts]=useState([]);
-
-
     let [modalvisible,setmodalvisible]=useState(false);
+
+    let [messageVisible,setmessageVisible]=useState(false);
+    let [message,setmessage]=useState({text:"I am a toast",textclass:"success"})
 
     let product=useRef({});
 
@@ -26,7 +27,6 @@ function Products(){
   
 
     }
-
 
 
     useEffect(function(){
@@ -86,13 +86,21 @@ function Products(){
         return response.json();
       })
       .then(function(data){
+        setmodalvisible(false);
+        setmessageVisible(true);
+
         
         if(data.success===true){
-          setmodalvisible(false);
+          setmessage({text:data.message,textclass:"success"})
         }
         else{
           console.log(data);
+          setmessage({text:data.message,textclass:"error"})
         }
+
+        setTimeout(function(){
+          setmessageVisible(false);
+        },5000)
       })
       .catch(function(err){
         console.log(err);
@@ -102,6 +110,23 @@ function Products(){
 
     return(
       <div>
+
+        {/* toast message section */}
+
+        {
+          messageVisible===true?(
+            <div className={'mytoast ' + message.textclass}>
+              {message.text}
+
+            </div>
+          )
+          :null
+        }
+        
+
+
+
+        {/* modal section */}
  
        {
         modalvisible===true?(
@@ -124,7 +149,7 @@ function Products(){
                   readUpdate("price",event.target.value);
                 }}></input>
                 <input type="text" placeholder="Enter Quantity" className="form-control mb-3" defaultValue={product.current.quantity} onChange={function(event){
-                  readUpdate("quanity",event.target.value);
+                  readUpdate("quantity",event.target.value);
                 }}></input>
 
                 <button  type='button' className="btn btn-primary" onClick={function(){
